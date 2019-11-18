@@ -1,0 +1,17 @@
+{
+  "name": "color-curves",
+  "version": "1.0.0",
+  "description": "Unique color palettes for data visualization and generative art",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Racette <markracette@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "d3-ease": "^1.0.6"
+  }
+}
