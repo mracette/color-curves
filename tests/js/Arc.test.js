@@ -1,4 +1,4 @@
-import { Arc } from '../../js/Arc';
+import { Arc } from '../../Arc';
 
 test('arc angle never exceeds 2PI', () => {
 
