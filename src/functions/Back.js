@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easeBackIn, easeBackOut, easeBackInOut } from 'd3-ease';
 
 /**
  * Creates an "ease back" function.
@@ -62,9 +62,9 @@ export class Back extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easeBackIn.overshoot(this.overshoot); break;
-            case 'out': this.fn = d3.easeBackOut.overshoot(this.overshoot); break;
-            case 'in-out': this.fn = d3.easeBackInOut.overshoot(this.overshoot); break;
+            case 'in': this.fn = easeBackIn.overshoot(this.overshoot); break;
+            case 'out': this.fn = easeBackOut.overshoot(this.overshoot); break;
+            case 'in-out': this.fn = easeBackInOut.overshoot(this.overshoot); break;
             default: break;
         }
 

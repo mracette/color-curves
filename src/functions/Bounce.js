@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easeBounceIn, easeBounceOut, easeBounceInOut } from 'd3-ease';
 
 /**
  * Creates an ease "bounce" curve.
@@ -52,9 +52,9 @@ export class Bounce extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easeBounceIn; break;
-            case 'out': this.fn = d3.easeBounceOut; break;
-            case 'in-out': this.fn = d3.easeBounceInOut; break;
+            case 'in': this.fn = easeBounceIn; break;
+            case 'out': this.fn = easeBounceOut; break;
+            case 'in-out': this.fn = easeBounceInOut; break;
             default: break;
         }
 

@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easeSinIn, easeSinOut, easeSinInOut } from 'd3-ease';
 
 /**
  * Creates an ease "sinusoidal" curve.
@@ -52,9 +52,9 @@ export class Sinusoidal extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easeSinIn; break;
-            case 'out': this.fn = d3.easeSinOut; break;
-            case 'in-out': this.fn = d3.easeSinInOut; break;
+            case 'in': this.fn = easeSinIn; break;
+            case 'out': this.fn = easeSinOut; break;
+            case 'in-out': this.fn = easeSinInOut; break;
             default: break;
         }
 

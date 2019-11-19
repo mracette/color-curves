@@ -1,6 +1,6 @@
 {
   "name": "color-curves",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Unique color palettes for data visualization and generative art",
   "main": "build/color-curves.js",
   "module": "build/color-curves.module.js",
@@ -27,10 +27,11 @@
     "d3-ease": "^1.0.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "rollup": "^1.27.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2"
   }
 }

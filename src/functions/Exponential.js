@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easeExpIn, easeExpOut, easeExpInOut } from 'd3-ease';
 
 /**
  * Creates an ease "exponential" curve.
@@ -52,9 +52,9 @@ export class Exponential extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easeExpIn; break;
-            case 'out': this.fn = d3.easeExpOut; break;
-            case 'in-out': this.fn = d3.easeExpInOut; break;
+            case 'in': this.fn = easeExpIn; break;
+            case 'out': this.fn = easeExpOut; break;
+            case 'in-out': this.fn = easeExpInOut; break;
             default: break;
         }
 

@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easePolyIn, easePolyOut, easePolyInOut } from 'd3-ease';
 
 /**
  * Creates an ease "elastic" curve.
@@ -70,9 +70,9 @@ export class Polynomial extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easePolyIn.exponent(this.exponent); break;
-            case 'out': this.fn = d3.easePolyOut.exponent(this.exponent); break;
-            case 'in-out': this.fn = d3.easePolyInOut.exponent(this.exponent); break;
+            case 'in': this.fn = easePolyIn.exponent(this.exponent); break;
+            case 'out': this.fn = easePolyOut.exponent(this.exponent); break;
+            case 'in-out': this.fn = easePolyInOut.exponent(this.exponent); break;
             default: break;
         }
 

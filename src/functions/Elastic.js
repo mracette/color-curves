@@ -1,5 +1,5 @@
 import { Function } from './Function';
-import * as d3 from 'd3-ease';
+import { easeElasticIn, easeElasticOut, easeElasticInOut } from 'd3-ease';
 
 /**
  * Creates an "elastic" function.
@@ -86,9 +86,9 @@ export class Elastic extends Function {
     setFunction() {
 
         switch (this.variation) {
-            case 'in': this.fn = d3.easeElasticIn.amplitude(this.amplitude).period(this.period); break;
-            case 'out': this.fn = d3.easeElasticOut.amplitude(this.amplitude).period(this.period); break;
-            case 'in-out': this.fn = d3.easeElasticInOut.amplitude(this.amplitude).period(this.period); break;
+            case 'in': this.fn = easeElasticIn.amplitude(this.amplitude).period(this.period); break;
+            case 'out': this.fn = easeElasticOut.amplitude(this.amplitude).period(this.period); break;
+            case 'in-out': this.fn = easeElasticInOut.amplitude(this.amplitude).period(this.period); break;
             default: break;
         }
 
