@@ -1,6 +1,6 @@
 {
   "name": "color-curves",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Unique color palettes for data visualization and generative art",
   "main": "build/color-curves.js",
   "module": "build/color-curves.module.js",
