@@ -1,6 +1,6 @@
 {
   "name": "color-curves",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Unique color palettes for data visualization and generative art",
   "main": "build/color-curves.js",
   "module": "build/color-curves.module.js",
@@ -14,21 +14,23 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "test": "jest",
+    "build": "rollup -c --environment BUILD:production"
   },
   "author": "Mark Racette <markracette@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mracette/color-curves/issues"
   },
-  "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "d3-ease": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "rollup": "^1.27.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",

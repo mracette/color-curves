@@ -1,0 +1,38 @@
+{
+    "env": {
+        "production": {
+            "presets": [
+                [
+                    "@babel/env",
+                    {
+                        "modules": false,
+                        "debug": true,
+                        "targets": {
+                            "browsers": [
+                                "> 0.25%",
+                                "not dead"
+                            ]
+                        }
+                    }
+                ]
+            ]
+        },
+        "test": {
+            "plugins": [
+                "@babel/plugin-transform-modules-commonjs"
+            ],
+            "presets": [
+                [
+                    "@babel/env",
+                    {
+                        "modules": false,
+                        "debug": true,
+                        "targets": {
+                            "node": "current"
+                        }
+                    }
+                ]
+            ]
+        }
+    }
+}

@@ -15,3 +15,4 @@ export { StockImage } from './palettes/StockImage';
 export { TrixSky } from './palettes/TrixSky';
 export { UnAmerican } from './palettes/UnAmerican';
 export { WarmMagma } from './palettes/WarmMagma';
+export { OnVacation } from './palettes/OnVacation';
