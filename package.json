@@ -15,7 +15,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "rollup -c --environment BUILD:production"
+    "build": "rollup -c --environment BUILD:production",
+    "docs": "doxdox 'src/**/*.js' --layout markdown --output DOCUMENTATION.md"
   },
   "author": "Mark Racette <markracette@gmail.com>",
   "license": "MIT",
@@ -30,6 +31,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
     "babel-jest": "^24.9.0",
+    "doxdox": "^3.0.0",
     "jest": "^24.9.0",
     "rollup": "^1.27.1",
     "rollup-plugin-babel": "^4.3.3",
