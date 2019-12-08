@@ -95,9 +95,14 @@ export class ColorPalette {
     /**
      * Sets the "hs" (hue-saturation) curve for this palette.
      * @param {object|string} [hsCurve] An object or string describing the "hs" curve. See {@link Curve}
+     * @param {boolean} [applyDefaults = false] If true, applies default params to the new curve. If false, keeps params from 
+     * previous curve.
      */
 
-    setHsCurve(hsCurve) {
+    setHsCurve(hsCurve, applyDefaults = false) {
+
+        const currentParams = (applyDefaults || !this.hsCurve) ?
+            {} : JSON.parse(this.exportPaletteParams(null, 'hsCurve'));
 
         if (hsCurve && hsCurve.isCurve) {
 
@@ -113,11 +118,11 @@ export class ColorPalette {
 
         } else if (typeof hsCurve === 'object') {
 
-            this.hsCurve = this.initializeCurve(hsCurve.type, { surface: 'unitCircle', ...hsCurve });
+            this.hsCurve = this.initializeCurve(hsCurve.type, { surface: 'unitCircle', ...currentParams, ...hsCurve });
 
         } else if (typeof hsCurve === 'string') {
 
-            this.hsCurve = this.initializeCurve(hsCurve, { surface: 'unitCircle' });
+            this.hsCurve = this.initializeCurve(hsCurve, { surface: 'unitCircle', ...currentParams });
 
         } else {
 
@@ -130,9 +135,14 @@ export class ColorPalette {
     /**
      * Sets the "l" (lightness) curve for this palette.
      * @param {object|string} [lCurve] An object or string describing the "hs" curve. See {@link Curve}
+     * @param {boolean} [applyDefaults = false] If true, applies default params to the new curve. If false, keeps params from 
+     * previous curve.
      */
 
-    setLCurve(lCurve) {
+    setLCurve(lCurve, applyDefaults = false) {
+
+        const currentParams = (applyDefaults || !this.lCurve) ?
+            {} : JSON.parse(this.exportPaletteParams(null, 'hsCurve'));
 
         if (lCurve && lCurve.isCurve) {
 
@@ -148,11 +158,11 @@ export class ColorPalette {
 
         } else if (typeof lCurve === 'object') {
 
-            this.lCurve = this.initializeCurve(lCurve.type, { surface: 'unitSquare', ...lCurve });
+            this.lCurve = this.initializeCurve(lCurve.type, { surface: 'unitSquare', ...currentParams, ...lCurve });
 
         } else if (typeof lCurve === 'string') {
 
-            this.lCurve = this.initializeCurve(lCurve, { surface: 'unitSquare' });
+            this.lCurve = this.initializeCurve(lCurve, { surface: 'unitSquare', ...currentParams });
 
         } else {
 
@@ -166,10 +176,11 @@ export class ColorPalette {
      * Returns a JSON representation of this palette, including representations for each of its curves and the palette itself.
      * The returned string consists of three comma-separated JSON objects which map to hsCurve, lCurve, and paletteParams in the ColorPalette constructor.
      * @param {number} [precision] The number of decimals to include in numerical parameters.
+     * @param {string} [subset] Either 'palette', 'hsCurve', or 'lCurve'. Specifies a subset of parameters to export. 
      * @returns {string} The JSON representation of this palette.
      */
 
-    exportPaletteParams(precision) {
+    exportPaletteParams(precision, subset) {
 
         const p = precision || 3;
 
@@ -221,10 +232,16 @@ export class ColorPalette {
 
         });
 
-        return `
+        switch (subset) {
+            case 'palette': return JSON.stringify(paletteParams); break;
+            case 'hsCurve': return JSON.stringify(hsCurveParams); break;
+            case 'lCurve': return JSON.stringify(lCurveParams); break;
+            default: return `
             '${JSON.stringify(hsCurveParams)}', \
             '${JSON.stringify(lCurveParams)}', \
             '${JSON.stringify(paletteParams)}'`;
+                break;
+        }
 
     }
 

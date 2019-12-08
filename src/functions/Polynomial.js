@@ -5,6 +5,7 @@ import { easePolyIn, easePolyOut, easePolyInOut } from 'd3-ease';
  * Creates an ease "elastic" curve.
  * @extends Function
  * @param {object} [options] Optional properties of the function
+ * @param {string} [options.variation] The contour of the function (see https://easings.net)
  * @param {string} [options.exponent] The exponent of the function
  */
 
