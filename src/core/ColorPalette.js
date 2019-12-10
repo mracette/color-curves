@@ -142,7 +142,7 @@ export class ColorPalette {
     setLCurve(lCurve, applyDefaults = false) {
 
         const currentParams = (applyDefaults || !this.lCurve) ?
-            {} : JSON.parse(this.exportPaletteParams(null, 'hsCurve'));
+            {} : JSON.parse(this.exportPaletteParams(null, 'lCurve'));
 
         if (lCurve && lCurve.isCurve) {
 
